@@ -1,0 +1,62 @@
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+
+    		<div class="span2">
+    		  <!-- empty -->
+  			</div>
+
+         	  <div class="span9">
+              <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+              <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </a>
+ 
+              <!-- Be sure to leave the brand out there if you want it shown -->
+              <%= link_to "ProjectB", root_path, class: "brand" %>
+ 
+              <!-- Everything you want hidden at 940px or less, place within here -->
+              <div class="nav-collapse collapse">
+                <!-- .nav, .navbar-search, .navbar-form, etc -->
+                  <ul class="nav">
+                	 <li><%= link_to "Home", root_path %></li>
+        			     <li><%= link_to "About", about_path %></li>
+        		      </ul>
+          
+           <ul class="nav pull-right">   
+            <li>
+              <div id="user_nav">
+                <% if user_signed_in? %>
+
+                <%= link_to edit_user_registration_path do %>
+                <button class="btn-mini btn btn-info">Edit Profile</button>
+                <% end %>
+
+                <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => 'btn btn-danger btn-mini' %>
+                <% else %>
+                <%= link_to new_user_registration_path do %>
+                <button class="btn-small btn btn-info">Sign Up!</button>
+                <% end %>
+                or <%= link_to new_user_session_path do %>
+                <button class="btn btn-danger btn-small">Sign In</button>
+                <% end %>
+                <% end %>
+              </div>
+            </li> 
+          </ul>
+
+          
+          </div> <!-- end nav-collapse collapse -->
+ 	      </div> <!-- end span9 -->
+
+
+ 	  		<div class="span1">
+    		  <!-- empty -->
+  			</div>
+
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="row">
+	<div class="span6 offset3">
+		<div class="well">
+			<p>
+			  <%= @post.description %>
+			</p>
+			<p>
+			  <%= @post.user.username %>
+			</p>
+			<% if current_user == @post.user %>
+				<%= link_to 'Edit', edit_post_path(@post) %> |
+			<% end %>
+			<%= link_to 'Back', posts_path %>
+		</div>
+	</div>
+</div>
