@@ -15,21 +15,23 @@
               </a>
  
               <!-- Be sure to leave the brand out there if you want it shown -->
-              <%= link_to "ProjectB", root_path, class: "brand" %>
+              <%= link_to "WorkVoid", root_path, class: "brand" %>
  
               <!-- Everything you want hidden at 940px or less, place within here -->
               <div class="nav-collapse collapse">
                 <!-- .nav, .navbar-search, .navbar-form, etc -->
                   <ul class="nav">
-                	 <li><%= link_to "Home", root_path %></li>
-        			     <li><%= link_to "About", about_path %></li>
+                	 <li><%= link_to "Home", root_path, class: "homeabout" %></li>
+        			     <li><%= link_to "About", about_path, class: "homeabout" %></li>
         		      </ul>
           
            <ul class="nav pull-right">   
             <li>
               <div id="user_nav">
                 <% if user_signed_in? %>
-
+                <%= link_to new_post_path do %>
+                <button class="btn-mini btn btn-success">New Post</button>
+                <% end %>
                 <%= link_to edit_user_registration_path do %>
                 <button class="btn-mini btn btn-info">Edit Profile</button>
                 <% end %>

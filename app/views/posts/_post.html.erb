@@ -1,8 +1,27 @@
-  <tr>
-	<td><%= post.description %></td>
-	<td><%= link_to 'Show', post %></td>
+  <div class="box">
+	<p class="description"><%= post.description %></p>
+	Posted by
+    <%= link_to post.user.username %>&nbsp;&nbsp;&nbsp;
+	<%= link_to 'Comment', post %>
 	<% if current_user == post.user %>
-	<td><%= link_to 'Edit', edit_post_path(post) %></td>
-	<td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	<div class="editdelete">
+	<%= link_to 'Edit', edit_post_path(post) %> |
+	<%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+	</div>
 	<% end %>
+  </div>
+
+
+
+
+ <!-- original code  -->
+ <!--
+   <tr>
+	<td><%#= post.description %></td>
+	<td><%#= link_to 'Show', post %></td>
+	<%# if current_user == post.user %>
+	<td><%#= link_to 'Edit', edit_post_path(post) %></td>
+	<td><%#= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	<%# end %>
   </tr>
+-->

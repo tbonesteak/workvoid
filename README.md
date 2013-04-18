@@ -1,4 +1,4 @@
-# Welcome to ProjectB!
+# Welcome to JobConfession!
 This is a side project to build a simple app that will allow users to login and share interesting stories.
 
 The main focus will be to make a minimum viable product that is simple and clean, with a minimalistic design.
