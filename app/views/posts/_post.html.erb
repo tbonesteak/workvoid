@@ -1,7 +1,7 @@
   <div class="box">
 	<p class="description"><%= post.description %></p>
 	Posted by
-    <%= link_to post.user.username %>&nbsp;&nbsp;&nbsp;
+    <%= link_to post.user.username, post.user %>&nbsp;&nbsp;&nbsp;
 	<%= link_to 'Comment', post %>
 	<% if current_user == post.user %>
 	<div class="editdelete">

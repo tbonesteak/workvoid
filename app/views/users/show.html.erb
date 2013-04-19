@@ -1,0 +1,10 @@
+<!-- This page displays a user's profile page. -->
+
+
+<h1><%= @user.username %></h1>
+
+<div>
+  <%= render @posts %> <!-- This connects to _post.html.erb -->
+</div>
+
+<%= will_paginate @posts %>
