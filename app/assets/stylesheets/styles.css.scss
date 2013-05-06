@@ -2,12 +2,15 @@ $baseFontFamily: Open Sans;
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 $btnPrimaryBackground: #7EACCC;
 $navbarBackgroundHighlight: #33455C;    /* #5D8CC9; */
-$navbarBackground: #33455C;  /* #5D8CC9; */
-$baseBorderRadius: 0; /* This will remove the rounded corners */
+$navbarBackground: #26769E; /*33455C;*/  /* #5D8CC9; */
+$baseBorderRadius: 0px; /* This will remove the rounded corners */
 
 @import 'bootstrap';
+body {
+    background-color: white; /*#DFE5E8;*/  /*E8E8E8 light gray*/ /*E1E3F2*/
+}
 
-@import 'bootstrap-responsive';
+/* @import 'bootstrap-responsive'; */
 
 .footer{
     margin-top: 50px;
@@ -28,17 +31,37 @@ $baseBorderRadius: 0; /* This will remove the rounded corners */
     border-radius: 2px;
    /* box-shadow: 1px 1px 0px #444; */
     width: 100%;
-    background-color: #F2F2F2;
+    background-color: #E6E6E6; /*DFE5E8; darker blue*/ /*F2F2F2;*/
+    font-size: 13px;
 }
 
 .brand {
-    color: white !important;
+    color: #DFEDF5 /*#D5F5D9*/ !important;
 }
 
-.homeabout {
+.navcolor {
     color: white !important;
 }
 
 .editdelete {
     float: right;
+}
+
+.container {
+    width: 1200px;
+}
+
+.btn {
+    border-radius: 5px !important;   /* This makes the corners of the buttons rounded. */
+}
+
+.footernav {
+    list-style-type:none;
+    display:inline;
+
+    li {
+    float: left;
+    margin:10px;
+    padding:0px;
+    }
 }

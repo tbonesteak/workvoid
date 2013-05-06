@@ -8,6 +8,8 @@ Projectb::Application.routes.draw do
   match 'users/:id' => 'users#show', as: :user
 
   get 'about' => 'pages#about'
+  get 'faq' => 'pages#faq'
+  get 'terms' => 'pages#terms'
 
   root :to => 'posts#index'
   # root :to => 'pages#home'

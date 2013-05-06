@@ -1,10 +1,11 @@
-<!-- This page displays a user's profile page. -->
+<!-- This page displays a user's profile page i.e. all the posts they've made when you click their user name. -->
 
-
-<h1><%= @user.username %></h1>
-
-<div>
-  <%= render @posts %> <!-- This connects to _post.html.erb -->
+<div class="row">
+	<div class="span6 offset3">
+		<h1><%= @user.username %></h1>
+		  <div>
+  		   <%= render @posts %> <!-- This connects to _post.html.erb -->
+		  </div>
+	</div>
 </div>
-
 <%= will_paginate @posts %>
