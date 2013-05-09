@@ -1,0 +1,30 @@
+<!-- This page displays the moderation page. -->
+
+<div class="row">
+  <div class="span6 offset3">
+    <div class="box">
+      <p>
+        <%= post.description %>
+      </p>
+      <p>
+        <strong>
+          posted by <%= post.user.username unless post.user.nil? %>
+        </strong>
+      </p>
+      <% if post.approved? %>
+        <div class="approved">
+          <p>
+            Approved. <%= link_to 'Dispprove', edit_approval_path(post) %>
+          </p>
+        </div>
+      <% else %>
+        <div class="approval">
+          <p>
+            Needs approval: <%= link_to 'Approve?', edit_approval_path(post) %>
+          </p>
+        </div>
+        
+      <% end %>
+    </div>
+  </div>
+</div>

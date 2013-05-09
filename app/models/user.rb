@@ -4,9 +4,16 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  validates :username, :uniqueness => true, :length => {
+    :minimum   => 3,
+    :maximum   => 20
+  }
+
+  extend FriendlyId
+  friendly_id :username, use: :slugged
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :admin
   # attr_accessible :title, :body
 
   has_many :posts

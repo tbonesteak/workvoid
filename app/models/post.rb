@@ -1,8 +1,9 @@
 class Post < ActiveRecord::Base
-  attr_accessible :description
+  attr_accessible :description, :approved
 
   validates :description, presence: true, length: { maximum: 4000 }
 
   belongs_to :user
   validates :user_id, presence: true
+  validates :description, presence: true
 end

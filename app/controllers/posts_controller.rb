@@ -4,7 +4,8 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.order("created_at desc").page(params[:page]).per_page(20)
+    @posts = Post.where(approved: true).order("created_at desc").page(params[:page]).per_page(20)
+    @admin = user_signed_in?&&current_user.admin?   #This allows the moderate link to show up for admins.
 
     respond_to do |format|
       format.html # index.html.erb

@@ -1,0 +1,33 @@
+<%= simple_form_for(@post, :url => approval_path, html: { class: "form-horizontal"}) do |f| %>
+  <%= f.error_notification %>
+  <p>
+    <div class="row">
+      <div class="span6 offset3">
+        <div class="box">
+      	   <%= @post.description %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span3 offset1">
+        <p>Edit post (if necessary):</p>
+          <%= f.input :description, label: "&nbsp;", input_html: { rows: 8, style: 'width: 350px', maxlength: 4000 } %>
+      </div>
+    </div>
+  </p>
+  <p>
+  	Check this box and press 'Update Post' to approve. 
+  </p>
+  <p>
+    Uncheck the box and press 'Update Post' to disapprove. The post will not be displayed on the main page.
+  </p>
+
+  <b>Approve/Disapprove:</b>	<%= f.check_box :approved, {}, 'true', 'false' %>
+  
+
+ 
+
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-primary" %>
+  </div>
+<% end %>

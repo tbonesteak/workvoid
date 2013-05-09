@@ -11,6 +11,9 @@
                   <ul class="nav">
                    <li><%= link_to "About", about_path, class: "navcolor" %></li>
                    <li><%= link_to "FAQ", faq_path, class: "navcolor" %></li>
+                   <% if @admin %>
+                    <li><%= link_to "Moderate", approval_index_path, class: "navcolor" %></li>
+                    <% end %> 
                   </ul>
           
            <ul class="nav pull-right">   
