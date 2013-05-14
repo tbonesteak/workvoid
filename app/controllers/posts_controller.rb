@@ -17,6 +17,7 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
+    @admin = user_signed_in?&&current_user.admin?
 
     respond_to do |format|
       format.html # show.html.erb
@@ -50,7 +51,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to @post, notice: 'Thanks for sharing. Your post must be approved by a moderator before it will be posted!' }
         format.json { render json: @post, status: :created, location: @post }
       else
         format.html { render action: "new" }

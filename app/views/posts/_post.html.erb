@@ -3,7 +3,7 @@
 	Posted by
     <%= link_to post.user.username, post.user %>&nbsp;&nbsp;&nbsp;
 	<%= link_to 'Comment', post %>
-	<% if current_user == post.user %>
+	<% if current_user == post.user || @admin %>
 	<div class="editdelete">
 	<%= link_to 'Edit', edit_post_path(post) %> |
 	<%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>

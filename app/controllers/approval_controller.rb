@@ -23,7 +23,7 @@ class ApprovalController < ApplicationController
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
-        format.html { redirect_to approval_index_path, notice: 'Approved' }
+        format.html { redirect_to approval_index_path, notice: 'This post has been updated. Keep up the good work! -Jon' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
