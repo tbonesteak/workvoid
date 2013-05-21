@@ -1,4 +1,11 @@
 Projectb::Application.routes.draw do
+  resources :comments
+  resources :posts do
+
+    resources :comments
+  end
+
+
   get "users/show"
 
   resources :posts

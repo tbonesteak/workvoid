@@ -1,0 +1,12 @@
+<%= div_for(comment) do %>
+<p id="comments">
+	<%= h(comment.body) %>
+</p>
+<p>
+	<strong>Posted by <%= comment.user.username %> <%= time_ago_in_words(comment.created_at) %> ago </strong></br>
+</p>
+
+<% if comment.user == current_user %>
+				<%= link_to 'Edit', edit_post_comment_path(comment) %>
+			<% end %>
+<% end %>
