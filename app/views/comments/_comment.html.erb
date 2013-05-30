@@ -1,12 +1,16 @@
 <%= div_for(comment) do %>
+<div class="box">
 <p id="comments">
 	<%= h(comment.body) %>
 </p>
 <p>
 	<strong>Posted by <%= comment.user.username %> <%= time_ago_in_words(comment.created_at) %> ago </strong></br>
+<% if comment.user == current_user || @admin %>
+				<%= link_to 'Edit', edit_comment_path(comment) %> |
+				<%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+			<% end %>			
+<% end %>
 </p>
 
-<% if comment.user == current_user %>
-				<%= link_to 'Edit', edit_post_comment_path(comment) %>
-			<% end %>
-<% end %>
+</div>
+<br />
