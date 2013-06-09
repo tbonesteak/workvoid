@@ -2,7 +2,7 @@
 	<p class="description"><%= post.description %></p>
 	Posted by
     <%= link_to post.user.username, post.user %>&nbsp;&nbsp;&nbsp;
-	<%= link_to 'Comment', post %>
+	<%= link_to 'Comments', post %> <%= post.comments.size %>
 	<% if current_user == post.user || @admin %>
 	<div class="editdelete">
 	<%= link_to 'Edit', edit_post_path(post) %> |
