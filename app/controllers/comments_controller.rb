@@ -75,19 +75,18 @@ class CommentsController < ApplicationController
     @admin = user_signed_in?&&current_user.admin?
     @comment = Comment.find(params[:id])
     if @comment.user == current_user || @admin
-    respond_to do |format|
-      if @comment.update_attributes(params[:comment])
-        #format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
-        format.html { redirect_to :back, notice: 'Comment was successfully created.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @comment.update_attributes(params[:comment])
+          #format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
+          format.html { redirect_to :back, notice: 'Comment was successfully created.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @comment.errors, status: :unprocessable_entity }
+        end
       end
-    end
     else flash[:alert] = "You do not have permission to do that."
       redirect_to :back
-    end
     end
   end
 
@@ -100,9 +99,10 @@ class CommentsController < ApplicationController
       @comment.destroy
     else flash[:alert] = "You do not have permission to do that."
       redirect_to :back
+    end
 
     respond_to do |format|
-      format.html { redirect_to comments_url }
+      format.html { redirect_to post_path(@comment.post) }
       format.json { head :no_content }
     end
   end
