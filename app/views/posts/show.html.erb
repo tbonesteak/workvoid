@@ -15,7 +15,7 @@
 			  <%= @post.description %>
 			</p>
 			<p>
-			  Posted by <%= @post.user.username %>
+			  Posted by <%= @post.user.username %> <%= time_ago_in_words(@post.created_at) %> ago
 			</p>
 			<% if current_user == @post.user %>
 				<%= link_to 'Edit', edit_post_path(@post) %> |
