@@ -40,7 +40,14 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     #@post = Post.find(params[:id])
-    @post = current_user.posts.find(params[:id])
+    @admin = user_signed_in?&&current_user.admin?
+    if @admin 
+      @post = Post.find(params[:id])
+    else 
+      @post = current_user.posts.find(params[:id])
+  
+    end
+
   end
 
   # POST /posts
@@ -64,7 +71,12 @@ class PostsController < ApplicationController
   # PUT /posts/1.json
   def update
     #@post = Post.find(params[:id])
-    @post = current_user.posts.find(params[:id])
+    @admin = user_signed_in?&&current_user.admin?
+    if @admin
+      @post = Post.find(params[:id])
+    else
+      @post = current_user.posts.find(params[:id])
+    end
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
@@ -81,12 +93,21 @@ class PostsController < ApplicationController
   # DELETE /posts/1.json
   def destroy
     #@post = Post.find(params[:id])
-    @post = current_user.posts.find(params[:id])
-    @post.destroy
+    @admin = user_signed_in?&&current_user.admin?
+    #@post = current_user.posts.find(params[:id])
+    
+    if @admin
+      @post = Post.find(params[:id])
+    else  
+      @post = current_user.posts.find(params[:id])
+    end
 
-    respond_to do |format|
-      format.html { redirect_to posts_url }
-      format.json { head :no_content }
+    if @post.destroy
+      respond_to do |format|
+        format.html { redirect_to posts_url }
+        format.json { head :no_content }
+      end
     end
   end
 end
+

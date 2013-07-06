@@ -8,6 +8,7 @@ gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'friendly_id', '~> 4.0.9'
 gem 'newrelic_rpm'
+gem 'hirb'
 
 group :production do
 	gem 'pg'
