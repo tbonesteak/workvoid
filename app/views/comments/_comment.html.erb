@@ -1,7 +1,7 @@
 <%= div_for(comment) do %>
 <div class="box">
 <p id="comments">
-	<%= h(comment.body) %>
+	<%=simple_format h(comment.body) %> <!-- Simple format to create paragraphs -->
 </p>
 <p>
 	<strong>Posted by <%= comment.user.username %> <%= time_ago_in_words(comment.created_at) %> ago </strong></br>

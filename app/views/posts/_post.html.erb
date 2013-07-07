@@ -1,5 +1,5 @@
   <div class="box">
-	<p class="description"><%= post.description %></p>
+	<p class="description"><%=simple_format h post.description %></p> <!-- Simple format to create paragraphs -->
 	Posted by
     <%= link_to post.user.username, post.user %>&nbsp;&nbsp;&nbsp;
 	<%= link_to 'Comments:', post %> <%= post.comments.size %>
